@@ -38,7 +38,8 @@ if __name__ == "__main__":
         on_fit_config_fn=fit_round,
     )
     fl.server.start_server(
-        server_address="localhost:"+ str(sys.argv[1]),
+        #server_address="localhost:"+ str(sys.argv[1]),
+        server_address = "127.0.0.1:8000",
         strategy=strategy,
         config={"num_rounds": 5},
     )

@@ -47,4 +47,7 @@ if __name__ == "__main__":
             return loss, len(X_test), {"accuracy": accuracy}
 
     # Start Flower client
-    fl.client.start_numpy_client("localhost:"+ str(sys.argv[1]), client=MnistClient())
+    fl.client.start_numpy_client(
+        #"localhost:"+ str(sys.argv[1]), 
+        server_address = "127.0.0.1:8000",
+        client=MnistClient())
