@@ -48,6 +48,6 @@ if __name__ == "__main__":
 
     # Start Flower client
     fl.client.start_numpy_client(
-        #"localhost:"+ str(sys.argv[1]), 
-        server_address = "127.0.0.1:8000",
+        #server_address = "localhost:"+ str(sys.argv[1]), 
+        server_address = "localhost:5040",
         client=MnistClient())

@@ -1,5 +1,5 @@
 import flwr as fl
-import utils
+import sklearnff.utils as utils
 import sys
 from sklearn.metrics import log_loss
 from sklearn.linear_model import LogisticRegression
@@ -39,7 +39,7 @@ if __name__ == "__main__":
     )
     fl.server.start_server(
         #server_address="localhost:"+ str(sys.argv[1]),
-        server_address = "127.0.0.1:8000",
+        server_address = "localhost:5040",
         strategy=strategy,
         config={"num_rounds": 5},
     )

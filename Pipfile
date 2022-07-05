@@ -7,6 +7,7 @@ name = "pypi"
 flwr = "*"
 scikit-learn = "*"
 openml-pytorch = "*"
+utils = "*"
 
 [dev-packages]
 
