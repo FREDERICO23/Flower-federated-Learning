@@ -1,5 +1,6 @@
 import flwr as fl
-import sklearnff.utils as utils
+#import sklearnff.utils as utils
+import utils
 import sys
 from sklearn.metrics import log_loss
 from sklearn.linear_model import LogisticRegression

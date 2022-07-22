@@ -6,7 +6,7 @@ import sys
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import log_loss
 
-import sklearnff.utils as utils
+import utils
 
 if __name__ == "__main__":
     # Load MNIST dataset from https://www.openml.org/d/554
