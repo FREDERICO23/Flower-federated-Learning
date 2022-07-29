@@ -3,26 +3,22 @@ import flwr as fl
 import numpy as np
 import sys
 
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import log_loss
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
 
 import utils
 
 if __name__ == "__main__":
-    # Load MNIST dataset from https://www.openml.org/d/554
-    (X_train, y_train), (X_test, y_test) = utils.load_mnist()
+    # Load Rainfall data
+    (X_train, y_train), (X_test, y_test) = utils.load_data()
 
     # Split train set into 10 partitions and randomly use one for training.
-    partition_id = np.random.choice(10)
-    (X_train, y_train) = utils.partition(X_train, y_train, 10)[partition_id]
+    partition_id = np.random.choice(1)
+    (X_train, y_train) = utils.partition(X_train, y_train, 1)[partition_id]
 
-    # Create LogisticRegression Model
-    model = LogisticRegression(
-        penalty="l2",
-        max_iter=1,  # local epoch
-        warm_start=True,  # prevent refreshing weights when fitting
-    )
-
+    # Create LinearRegression Model
+    model = LinearRegression()
+  
     # Setting initial parameters, akin to model.compile for keras models
     utils.set_initial_params(model)
 
@@ -42,8 +38,9 @@ if __name__ == "__main__":
 
         def evaluate(self, parameters, config):  # type: ignore
             utils.set_model_params(model, parameters)
-            loss = log_loss(y_test, model.predict_proba(X_test))
-            accuracy = model.score(X_test, y_test)
+            preds = model.predict(X_test)
+            loss = mean_squared_error(y_test, preds)
+            accuracy = r2_score(preds, y_test)
             return loss, len(X_test), {"accuracy": accuracy}
 
     # Start Flower client
