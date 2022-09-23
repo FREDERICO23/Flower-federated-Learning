@@ -29,7 +29,7 @@ pandas==1.4.3
 parso==0.8.3
 pickleshare==0.7.5
 prompt-toolkit==3.0.30
-protobuf==3.20.1
+protobuf==3.20.2
 psutil==5.9.1
 pure-eval==0.2.2
 pyarrow==8.0.0
