@@ -14,7 +14,7 @@ ipykernel==6.15.1
 ipython==8.4.0
 iterators==0.0.2
 jedi==0.18.1
-joblib==1.1.0
+joblib==1.2.0
 jupyter-client==7.3.4
 jupyter-core==4.11.1
 liac-arff==2.5.0
